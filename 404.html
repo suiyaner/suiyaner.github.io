@@ -1016,7 +1016,7 @@
 
     let path = $.trim($('#pjax-comment-path').text());
     if (path.length == 0) {
-      let defaultPath = 'https://github.com/suiyaner/suiyaner.github.io/issues/1';
+      let defaultPath = 'decodeURI(path)';
       path = defaultPath || decodeURI(window.location.pathname);
     }
 
