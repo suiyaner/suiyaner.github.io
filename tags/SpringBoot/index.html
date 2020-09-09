@@ -58,8 +58,6 @@
   
 
   
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/meteorlxy/vssue@1.4.4/packages/vssue/dist/vssue.min.css">
-  
 
   <!-- import link -->
   
@@ -658,7 +656,7 @@
         <div class="webinfo-item">
           <div>最后活动时间：</div>
           
-            <div id="last-update" style="display: none;">Wed Sep 09 2020 14:54:38 GMT+0800 (GMT+08:00)</div>
+            <div id="last-update" style="display: none;">Wed Sep 09 2020 14:59:14 GMT+0800 (GMT+08:00)</div>
             <div id="last-update-show">2020-09-09 日</div>
           
         </div>
@@ -1242,26 +1240,34 @@
 
 
 
-  <script src="https://cdn.jsdelivr.net/gh/vuejs/vue@2.6.11/dist/vue.runtime.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/meteorlxy/vssue@1.4.4/packages/vssue/dist/vssue.github.min.js"></script>
-<script>
-  new Vue({
-    el: '#vssue',
+  <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+  function pjax_gitalk() {
+    if(!document.querySelectorAll("#gitalk-container")[0])return;
 
-    render: h => h('Vssue', {
-      props: {
-        title: "undefined - Atlantis",
-        options: {
-          owner: 'suiyaner',
-          repo: 'suiyaner.github.io',
-          clientId: 'c390633e06acd3662c24',
-          clientSecret: 'c7f6a372d830f8c152c14cf71c406d8cd2ab210a',
-          prefix: '',
-          autoCreateIssue: true,
-        },
-      }
-    })
-  })
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    if (document.getElementById('gitalk-container') != null) {
+      var gitalk = new Gitalk({
+        clientID: "c390633e06acd3662c24",
+        clientSecret: "c7f6a372d830f8c152c14cf71c406d8cd2ab210a",
+        repo: "suiyaner.github.io",
+        owner: "suiyaner",
+        admin: "suiyaner",
+        id: path,
+        distractionFreeMode: false  // Facebook-like distraction free mode
+      });
+      gitalk.render('gitalk-container');
+    }
+  }
+
+  $(function () {
+    pjax_gitalk();
+  });
 </script>
 
 
@@ -1724,6 +1730,8 @@ const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
         
         
         
+        
+          pjax_gitalk();
         
         
         
