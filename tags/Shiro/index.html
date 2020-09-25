@@ -5,9 +5,7 @@
   <!-- SEO相关 -->
   
     
-      
-        <meta name="robots" content="index,follow">
-      
+      <meta name="robots" content="noindex,follow">
     
   
   <!-- 渲染优化 -->
@@ -21,9 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>Atlantis</title>
-  
-    <meta name="keywords" content="Atlantis，亚特兰蒂斯，海世界">
+  <title>标签：Shiro - Atlantis</title>
   
 
   
@@ -421,14 +417,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("full" == "none") { // 移除封面 
+  if ("none" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("full" == "half") { // 半屏 
+    if ("none" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("full" == "full") { // 全屏 
+    } else if ("none" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -441,75 +437,20 @@
         
         
 
+
 <div class='l_main'>
   
+    
+      
   <section class="post-list">
     
       
         
           
         
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-        
-          
-        
-          
-        
-          
-        
       
     
     
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/09/25/RedisTemplate/">
-        RedisTemplate使用笔记
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <h1 id="RedisTemplate"><a href="#RedisTemplate" class="headerlink" title="RedisTemplate"></a>RedisTemplate</h1><p>基于Jedis高度封装的redis操作框架</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-09-25</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/09/25/RedisTemplate/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
       
         
           <div class='post-wrapper'>
@@ -565,47 +506,6 @@ Shiro是一款主流的Java安全框架，不依赖任何容器，可以运行�
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/2020/06/25/SpirngBoot%E6%95%B4%E5%90%88Mybatis-Plus/">
-        SpirngBoot整合Mybatis-Plus
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      <p>这是一篇关于Mybatis-Plus的配置教程</p>
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-25</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/2020/06/25/SpirngBoot%E6%95%B4%E5%90%88Mybatis-Plus/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -613,6 +513,8 @@ Shiro是一款主流的Java安全框架，不依赖任何容器，可以运行�
   
 
 
+    
+  
 </div>
 <aside class='l_side'>
   
@@ -833,7 +735,6 @@ Shiro是一款主流的Java安全框架，不依赖任何容器，可以运行�
 
 
 </aside>
-
 
 
       </div>
