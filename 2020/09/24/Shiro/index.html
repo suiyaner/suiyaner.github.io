@@ -517,7 +517,7 @@ Shiro是一款主流的Java安全框架，不依赖任何容器，可以运行�
 <blockquote>
 <p>会给角色赋予权限，给用户赋予角色。</p>
 </blockquote>
-<h2 id="运行机制流程图"><a href="#运行机制流程图" class="headerlink" title="运行机制流程图"></a>运行机制流程图</h2><p><img src="https://s1.ax1x.com/2020/07/15/UdxWV0.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/07/15/UdxWV0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h3 id="运行机制流程图"><a href="#运行机制流程图" class="headerlink" title="运行机制流程图"></a>运行机制流程图</h3><p><img src="https://s1.ax1x.com/2020/07/15/UdxWV0.png" class="lazyload" data-srcset="https://s1.ax1x.com/2020/07/15/UdxWV0.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <h1 id="3-SpringBoot-集成Shiro"><a href="#3-SpringBoot-集成Shiro" class="headerlink" title="3.SpringBoot 集成Shiro"></a>3.SpringBoot 集成Shiro</h1><h3 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="Realm实现"><a href="#Realm实现" class="headerlink" title="Realm实现"></a>Realm实现</h3><blockquote>
@@ -599,7 +599,7 @@ Shiro是一款主流的Java安全框架，不依赖任何容器，可以运行�
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-25T17:00:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-25T17:03:20+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年9月25日</p>
@@ -743,7 +743,7 @@ POM.xml
 
 
     <div class='content'>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFShiro"><span class="toc-text">什么是Shiro</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">运行机制流程图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven"><span class="toc-text">Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Realm%E5%AE%9E%E7%8E%B0"><span class="toc-text">Realm实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Config%E9%85%8D%E7%BD%AE%E7%B1%BB%E9%85%8D%E7%BD%AE"><span class="toc-text">Config配置类配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Login%E5%AE%9E%E7%8E%B0"><span class="toc-text">Login实现</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFShiro"><span class="toc-text">什么是Shiro</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E6%9C%BA%E5%88%B6%E6%B5%81%E7%A8%8B%E5%9B%BE"><span class="toc-text">运行机制流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Maven"><span class="toc-text">Maven</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Realm%E5%AE%9E%E7%8E%B0"><span class="toc-text">Realm实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Config%E9%85%8D%E7%BD%AE%E7%B1%BB%E9%85%8D%E7%BD%AE"><span class="toc-text">Config配置类配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Login%E5%AE%9E%E7%8E%B0"><span class="toc-text">Login实现</span></a></li></ol>
     </div>
   </section>
 
