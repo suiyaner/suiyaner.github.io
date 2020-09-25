@@ -19,7 +19,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>标签：SpringBoot - Atlantis</title>
+  <title>归档：2020/9 - Atlantis</title>
   
 
   
@@ -417,14 +417,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("none" == "none") { // 移除封面 
+  if ("half" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("none" == "half") { // 半屏 
+    if ("half" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("none" == "full") { // 全屏 
+    } else if ("half" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -437,11 +437,9 @@
         
         
 
-
 <div class='l_main'>
-  
-    
-      
+	
+		
   <section class="post-list">
     
       
@@ -461,26 +459,30 @@
   
     
     <h2 class="article-title" >
-      <a href="/2020/06/25/SpirngBoot%E6%95%B4%E5%90%88Mybatis-Plus/">
-        SpirngBoot整合Mybatis-Plus
+      <a href="/2020/09/25/RedisTemplate/">
+        2020年9月25日
       </a>
     </h2>
   
   <div class='md'>
     
-      <p>这是一篇关于Mybatis-Plus的配置教程</p>
+      
+        RedisTemplate基于Jedis高度封装的redis操作框架
+POM.xml
+1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;&l...
+      
     
   </div>
   
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-06-25</time>
+        <time>2020-09-25</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2020/06/25/SpirngBoot%E6%95%B4%E5%90%88Mybatis-Plus/'>
+          <a class='readmore' href='/2020/09/25/RedisTemplate/'>
             阅读全文
           </a>
         </div>
@@ -500,8 +502,7 @@
   
 
 
-    
-  
+	
 </div>
 <aside class='l_side'>
   
