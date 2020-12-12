@@ -445,8 +445,8 @@ SpringBoot 从 2.0.6 升级至 2.4.1 要进行的修改如下
 <a id="more"></a>
 
 <h3 id="1-升级Mysql驱动版本"><a href="#1-升级Mysql驱动版本" class="headerlink" title="1.升级Mysql驱动版本"></a>1.升级Mysql驱动版本</h3><hr>
-<p>在 <strong>SpringBoot 2.1 ** 中 Mysql驱动版本 由 **mysql-connector-java 5 ** 升级成为了 **mysql-connector-java 6</strong>，</p>
-<p><strong>mysql-connector-java 6</strong> 中 新增了一项属性为: <strong>serverTimezone</strong> 时区属性，且进行数据库连接时必须添加该属性。</p>
+<p>在 <strong>SpringBoot 2.1</strong> 中 Mysql驱动版本 由 <strong>mysql-connector-java-5</strong> 升级成为了 <strong>mysql-connector-java-6</strong>，</p>
+<p><strong>mysql-connector-java-6</strong> 中 新增了一项属性为: <strong>serverTimezone</strong> 时区属性，且进行数据库连接时必须添加该属性。</p>
 <p>YAML 配置如下：</p>
 <figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">datasource:</span></span><br><span class="line">  <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/databasename?serverTimezone=Asia/Shanghai</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
 
@@ -454,7 +454,7 @@ SpringBoot 从 2.0.6 升级至 2.4.1 要进行的修改如下
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionSource</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.db.DriverManagerConnectionSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driverClass</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">driverClass</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/databasename?serverTimezone=Asia/Shanghai<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>root<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span>root<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionSource</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="2-修改原有依赖或添加新包"><a href="#2-修改原有依赖或添加新包" class="headerlink" title="2.修改原有依赖或添加新包"></a>2.修改原有依赖或添加新包</h3><hr>
-<p>1.若你在项目中使用了如 <strong>@NotNull @Length</strong> 等的 **Hibernate-Validator **注解，因为新版本中已经移除了该依赖，那么在新版本中你则需要手动导入该依赖。</p>
+<p>1.若你在项目中使用了如 <strong>@NotNull @Length</strong> 等的 <strong>Hibernate-Validator</strong> 注解，因为新版本中已经移除了该依赖，那么在新版本中你则需要手动导入该依赖。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate.validator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.1.6.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>2.又或者你跟我们一样使用了 <strong>JedisPool</strong> 并且封装了一个工具类，那么你要进行如下更改：</p>
@@ -469,7 +469,7 @@ SpringBoot 从 2.0.6 升级至 2.4.1 要进行的修改如下
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    result = jedis.hdel(key, field);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(<span class="string">&quot;expire key:&#123;&#125; exTime:&#123;&#125; error&quot;</span>, key, exTime, e);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="keyword">null</span>) &#123;</span><br><span class="line">        jedis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ol start="3">
-<li><p>若你使用了<strong>junit4</strong> 单元测试的注解那么在新版本中你需要将其改为<strong>junit5</strong> 的单元测试注解</p>
+<li><p>若你使用了 <strong>junit4</strong> 单元测试的注解那么在新版本中你需要将其改为<strong>junit5</strong> 的单元测试注解</p>
 <p>当然他的升级是很方便的，你只需要移除原本的 <strong>@RunWith(SpringRunner.class)</strong> 只留下 <strong>@SpringBootTest</strong> 即可</p>
 <p>或者你还想继续使用 <strong>junit4</strong> 来进行单元测试，那么只要手动导入 <strong>junit4</strong> 的依赖即可。</p>
 </li>
@@ -529,7 +529,7 @@ SpringBoot 从 2.0.6 升级至 2.4.1 要进行的修改如下
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-12T16:07:41+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-12T16:09:57+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2020年12月12日</p>
