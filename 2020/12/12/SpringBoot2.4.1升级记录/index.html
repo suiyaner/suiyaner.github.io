@@ -5,8 +5,6 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
-    
   
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
@@ -21,7 +19,9 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档 - Atlantis</title>
+  <title>SpringBoot 2.0.6 升级至 2.4.1升级记录 - Atlantis</title>
+  
+    <meta name="keywords" content="SpringBoot 2.0.6,SpringBoot 2.4.1,Docker时间,SpringBoot升级,批量修改时间戳">
   
 
   
@@ -58,7 +58,7 @@
 <body>
   
 
-<header id="l_header" class="l_header auto shadow blur " style='opacity: 0' >
+<header id="l_header" class="l_header auto shadow blur show" style='opacity: 0' >
   <div class='container'>
   <div id='wrapper'>
     <div class='nav-sub'>
@@ -309,7 +309,7 @@
     <div id="l_cover">
   
     
-        <div id="half" class='cover-wrapper  dock' style="display: ;">
+        <div id="full" class='cover-wrapper post dock' style="display: none;">
           
             <div class='cover-bg lazyload placeholder' data-bg="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg"></div>
           
@@ -373,79 +373,264 @@
         
 
 <div class='l_main'>
-	
-	  <article id="arc" class="post article white-box reveal shadow">
-			
-			
-				
-				
-					
-						
-						<h2>2020</h2>
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/">
-									<time>12-12</time>
-									
-										SpringBoot 2.0.6 升级至 2.4.1升级记录
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/09/25/RedisTemplate/">
-									<time>09-25</time>
-									
-										RedisTemplate使用笔记
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/09/24/Shiro/">
-									<time>09-24</time>
-									
-										Shiro学习笔记
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-				
-				
-					
-						<div class='timenode'>
-								<a class="meta" href="/2020/06/25/SpirngBoot%E6%95%B4%E5%90%88Mybatis-Plus/">
-									<time>06-25</time>
-									
-										SpirngBoot整合Mybatis-Plus
-									
-									
-									
-									
-								</a>
-						</div>
-				
-			
-	  </article>
-	
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        SpringBoot 2.0.6 升级至 2.4.1升级记录
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://suiyaner.github.io/avatar.jpg">
+    <p>绥焰儿</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年12月12日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="SpringBoot 2.0.6 升级至 2.4.1升级记录" data-path="/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  <h1 id="SpringBoot-2-0-6-升级至-2-4-1升级记录"><a href="#SpringBoot-2-0-6-升级至-2-4-1升级记录" class="headerlink" title="SpringBoot 2.0.6 升级至 2.4.1升级记录"></a>SpringBoot 2.0.6 升级至 2.4.1升级记录</h1><blockquote>
+<p>SpringBoot 从 2.0.6 升级至 2.4.1 要进行的修改如下</p>
+</blockquote>
+<h3 id="1-升级Mysql驱动版本"><a href="#1-升级Mysql驱动版本" class="headerlink" title="1.升级Mysql驱动版本"></a>1.升级Mysql驱动版本</h3><hr>
+<p>在 <strong>SpringBoot 2.1 ** 中 Mysql驱动版本 由 **mysql-connector-java 5 ** 升级成为了 **mysql-connector-java 6</strong>，</p>
+<p><strong>mysql-connector-java 6</strong> 中 新增了一项属性为: <strong>serverTimezone</strong> 时区属性，且进行数据库连接时必须添加该属性。</p>
+<p>YAML 配置如下：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">datasource:</span></span><br><span class="line">  <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">jdbc:mysql://127.0.0.1:3306/databasename?serverTimezone=Asia/Shanghai</span></span><br><span class="line">  <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">  <span class="attr">password:</span> <span class="string">root</span></span><br></pre></td></tr></table></figure>
+
+<p>若使用了 <strong>logback</strong> 日志配置文件，那么相应xml文件的驱动也要进行修改且在后方加上 <strong>?serverTimezone=Asia/Shanghai</strong> 即可。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">connectionSource</span> <span class="attr">class</span>=<span class="string">&quot;ch.qos.logback.core.db.DriverManagerConnectionSource&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">driverClass</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="tag">&lt;/<span class="name">driverClass</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url</span>&gt;</span>jdbc:mysql://127.0.0.1:3306/databasename?serverTimezone=Asia/Shanghai<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">user</span>&gt;</span>root<span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">password</span>&gt;</span>root<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">connectionSource</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-修改原有依赖或添加新包"><a href="#2-修改原有依赖或添加新包" class="headerlink" title="2.修改原有依赖或添加新包"></a>2.修改原有依赖或添加新包</h3><hr>
+<p>1.若你在项目中使用了如 <strong>@NotNull @Length</strong> 等的 **Hibernate-Validator **注解，因为新版本中已经移除了该依赖，那么在新版本中你则需要手动导入该依赖。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.hibernate.validator<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>hibernate-validator<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>6.1.6.Final<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2.又或者你跟我们一样使用了 <strong>JedisPool</strong> 并且封装了一个工具类，那么你要进行如下更改：</p>
+<p>原本的 JedisPool 使用 <strong>returnBrokenResource</strong> 和 <strong>returnResource</strong> 方法关闭线程池，那么现在若你在jdk1.7以上那么现在可以使用 <strong>try–with-resource</strong> 方法自动关闭线程池，当然你也可以选择手动添加一个 <strong>finally</strong> 方法 手动调用 <strong>jedis.close</strong>。</p>
+<p><strong>更新前</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    result = jedis.expire(key, exTime);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(<span class="string">&quot;expire key:&#123;&#125; exTime:&#123;&#125; error&quot;</span>, key, exTime, e);</span><br><span class="line">    jedisPool.returnBrokenResource(jedis);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125; </span><br><span class="line">&#125;</span><br><span class="line">jedisPool.returnResource(jedis);</span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+
+<p><strong>try-with-resources</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> (Jedis jedis = jedisPool.getResource()) &#123;</span><br><span class="line">    result = jedis.expire(key, exTime);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(<span class="string">&quot;expire key:&#123;&#125; exTime:&#123;&#125; error&quot;</span>, key, exTime, e);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>finally</strong>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    jedis = jedisPool.getResource();</span><br><span class="line">    result = jedis.hdel(key, field);</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    logger.error(<span class="string">&quot;expire key:&#123;&#125; exTime:&#123;&#125; error&quot;</span>, key, exTime, e);</span><br><span class="line">    <span class="keyword">return</span> result;</span><br><span class="line">&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (jedis != <span class="keyword">null</span>) &#123;</span><br><span class="line">        jedis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>若你使用了<strong>junit4</strong> 单元测试的注解那么在新版本中你需要将其改为<strong>junit5</strong> 的单元测试注解</p>
+<p>当然他的升级是很方便的，你只需要移除原本的 <strong>@RunWith(SpringRunner.class)</strong> 只留下 <strong>@SpringBootTest</strong> 即可</p>
+<p>或者你还想继续使用 <strong>junit4</strong> 来进行单元测试，那么只要手动导入 <strong>junit4</strong> 的依赖即可。</p>
+</li>
+<li><p>此处省略测试过程。</p>
+</li>
+</ol>
+<h3 id="3-其他内容"><a href="#3-其他内容" class="headerlink" title="3.其他内容"></a>3.其他内容</h3><hr>
+<p>1.Docker日志时间与外部时间不一致解决方案</p>
+<p>若你也使用了 <strong>Docker</strong> 进行镜像打包，那么也许你会遇到在日志输出的时间及用本地时间函数时获取的时间与外部时间不一致，那么解决办法如下:</p>
+<p>在 <strong>DockerFile</strong> 文件中添加以下语句</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ENV</span> TZ=Asia/Shanghai</span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> ln -snf /usr/share/zoneinfo/<span class="variable">$TZ</span> /etc/localtime &amp;&amp; <span class="built_in">echo</span> <span class="variable">$TZ</span> &gt; /etc/timezone</span></span><br></pre></td></tr></table></figure>
+
+<p>那么在进行镜像打包时，便会指定容器时区。</p>
+<p>2.在改完时区之后，发现订单创建时间比内部慢了8小时，经过排查发现原来是原本数据库中存储的时间戳比现在时间快8小时因此需要对数据库时间戳进行一次清洗，那么清洗语句如下:</p>
+<blockquote>
+<p><strong>使用数据库为Mysql，其余数据库请自行百度</strong></p>
+</blockquote>
+<p>​    1.首先查询订单数据并进行-8小时时间转换检测削减后时间是否正确，因我们前8位数字是按日期生成所以这是要清洗的数据条件</p>
+<p>​    (PS:因为数据量并不是很大所以一次性更新完即可)</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">	code,</span><br><span class="line">	OrderTime,</span><br><span class="line">	<span class="keyword">DATE_ADD</span>(from_unixtime(OrderTime),<span class="built_in">INTERVAL</span> <span class="number">-8</span> <span class="keyword">HOUR</span>)</span><br><span class="line"><span class="keyword">FROM</span> ax_crm_work_order </span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line"><span class="keyword">LEFT</span> ( CODE, <span class="number">8</span> ) &gt; <span class="string">&quot;20201201&quot;</span> </span><br><span class="line"><span class="keyword">AND</span> </span><br><span class="line"><span class="keyword">LEFT</span> ( CODE, <span class="number">8</span> ) &lt; <span class="string">&quot;20201213&quot;</span> </span><br></pre></td></tr></table></figure>
+
+<p>​    2.若时间无异常，那么即可进行批量更改</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">UPDATE</span> ax_crm_work_order </span><br><span class="line"><span class="keyword">SET</span> OrderTime = <span class="keyword">unix_timestamp</span>( <span class="keyword">DATE_ADD</span>( from_unixtime( OrderTime ), <span class="built_in">INTERVAL</span> - <span class="number">8</span> <span class="keyword">HOUR</span> )) </span><br><span class="line"><span class="keyword">WHERE</span> </span><br><span class="line"><span class="keyword">LEFT</span> ( CODE, <span class="number">8</span> ) &gt; <span class="string">&quot;20201201&quot;</span> </span><br><span class="line"><span class="keyword">AND</span> </span><br><span class="line"><span class="keyword">LEFT</span> ( CODE, <span class="number">8</span> ) &lt; <span class="string">&quot;20201213&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>**至此，到此结束! **</p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://suiyaner.github.io/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/>http://suiyaner.github.io/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-12-12T16:03:45+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年12月12日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SpringBoot-2-0-6/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SpringBoot 2.0.6</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SpringBoot-2-4-1/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SpringBoot 2.4.1</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Docker%E6%97%B6%E9%97%B4/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Docker时间</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/SpringBoot%E5%8D%87%E7%BA%A7/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>SpringBoot升级</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E6%88%B3/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>批量修改时间戳</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://suiyaner.github.io/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/&title=SpringBoot 2.0.6 升级至 2.4.1升级记录 - Atlantis&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://suiyaner.github.io/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/&title=SpringBoot 2.0.6 升级至 2.4.1升级记录 - Atlantis&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=http://suiyaner.github.io/2020/12/12/SpringBoot2.4.1%E5%8D%87%E7%BA%A7%E8%AE%B0%E5%BD%95/&title=SpringBoot 2.0.6 升级至 2.4.1升级记录 - Atlantis&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,666">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2020/09/25/RedisTemplate/'>
+          <p class='title'>RedisTemplate使用笔记<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>RedisTemplate基于Jedis高度封装的redis操作框架
+
+
+POM.xml
+1234&lt;dependency&gt;    &lt;groupId&gt;org.springf...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="gitalk-container"></div>
+
+  </article>
+
+
+
+
+
+
 </div>
 <aside class='l_side'>
   
@@ -453,233 +638,28 @@
     
     
 
-<section class="widget blogger shadow desktop mobile">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://suiyaner.github.io/avatar.jpg'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>绥焰儿</h2>
-        
-        
-        
-          <p><span id="jinrishici-sentence">Atlantis</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:775525420@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/suiyaner/"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
 
-  
 
-  
-    
-    
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile">
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
     
   <header>
     
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
     
   </header>
 
 
     <div class='content'>
-      <a href="/tags/Docker%E6%97%B6%E9%97%B4/" style="font-size: 14px; color: #999">Docker时间</a> <a href="/tags/Jedis/" style="font-size: 14px; color: #999">Jedis</a> <a href="/tags/Mybatis-Plus/" style="font-size: 14px; color: #999">Mybatis-Plus</a> <a href="/tags/Redis/" style="font-size: 14px; color: #999">Redis</a> <a href="/tags/RedisTemplate/" style="font-size: 14px; color: #999">RedisTemplate</a> <a href="/tags/Shiro/" style="font-size: 14px; color: #999">Shiro</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999">SpringBoot</a> <a href="/tags/SpringBoot-2-0-6/" style="font-size: 14px; color: #999">SpringBoot 2.0.6</a> <a href="/tags/SpringBoot-2-4-1/" style="font-size: 14px; color: #999">SpringBoot 2.4.1</a> <a href="/tags/SpringBoot%E5%8D%87%E7%BA%A7/" style="font-size: 14px; color: #999">SpringBoot升级</a> <a href="/tags/%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%97%B6%E9%97%B4%E6%88%B3/" style="font-size: 14px; color: #999">批量修改时间戳</a> <a href="/tags/%E6%9D%83%E9%99%90/" style="font-size: 14px; color: #999">权限</a>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%8D%87%E7%BA%A7Mysql%E9%A9%B1%E5%8A%A8%E7%89%88%E6%9C%AC"><span class="toc-text">1.升级Mysql驱动版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BF%AE%E6%94%B9%E5%8E%9F%E6%9C%89%E4%BE%9D%E8%B5%96%E6%88%96%E6%B7%BB%E5%8A%A0%E6%96%B0%E5%8C%85"><span class="toc-text">2.修改原有依赖或添加新包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%85%B6%E4%BB%96%E5%86%85%E5%AE%B9"><span class="toc-text">3.其他内容</span></a></li></ol>
     </div>
   </section>
 
 
   
 
-  
-    
-    
-
-<section class="widget shadow desktop">
-  
-  <header>
-    
-      <i class="fas fa-award fa-fw" aria-hidden="true"></i><span class='name'>站点信息</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="webinfo">
-      
-        <div class="webinfo-item">
-          <div>文章数目：</div>
-          <div>4 篇</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>已运行时间：</div>
-          <div id="webinfo-runtime-count" publish_date="03/24/2020 21:34:09"></div>
-        </div>
-        <script>
-          var BirthDay = new Date(new Date('2020/06/24'));
-          var today = new Date();
-          var timeold = (today.getTime() - BirthDay.getTime());
-          var daysold = Math.floor(timeold / (24 * 60 * 60 * 1000));
-          document.getElementById('webinfo-runtime-count').innerHTML = daysold + ' 天';
-        </script>
-      
-
-
-      
-        <div class="webinfo-item">
-          <div>本站总字数：</div>
-          <div>3.5k 字</div>
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站访客数：</div>
-          
-          <div><span id="lc-uv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 人</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>本站总访问量：</div>
-          
-          <div><span id="lc-sv"><span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span></span> 次</div>
-          
-        </div>
-      
-
-      
-        <div class="webinfo-item">
-          <div>最后活动时间：</div>
-          
-            <div id="last-update" style="display: none;">Sat Dec 12 2020 16:04:07 GMT+0800 (GMT+08:00)</div>
-            <div id="last-update-show">2020-12-12 日</div>
-          
-        </div>
-        
-        <script>
-          function timeago(dateTimeStamp) {
-              var minute = 1000 * 60; //把分，时，天，周，半个月，一个月用毫秒表示
-              var hour = minute * 60;
-              var day = hour * 24;
-              var week = day * 7;
-              var month = day * 30;
-              var now = new Date().getTime(); //获取当前时间毫秒
-              var diffValue = now - dateTimeStamp; //时间差
-              if (diffValue < 0) {
-                  return;
-              }
-              var minC = diffValue / minute; //计算时间差的分，时，天，周，月
-              var hourC = diffValue / hour;
-              var dayC = diffValue / day;
-              var weekC = diffValue / week;
-              var monthC = diffValue / month;
-              if (monthC >= 1 && monthC <= 3) {
-                  result = " " + parseInt(monthC) + " 月前"
-              } else if (weekC >= 1 && weekC <= 3) {
-                  result = " " + parseInt(weekC) + " 周前"
-              } else if (dayC >= 1 && dayC <= 6) {
-                  result = " " + parseInt(dayC) + " 天前"
-              } else if (hourC >= 1 && hourC <= 23) {
-                  result = " " + parseInt(hourC) + " 小时前"
-              } else if (minC >= 1 && minC <= 59) {
-                  result = " " + parseInt(minC) + " 分钟前"
-              } else if (diffValue >= 0 && diffValue <= minute) {
-                  result = "刚刚"
-              } else {
-                  var datetime = new Date();
-                  datetime.setTime(dateTimeStamp);
-                  var Nyear = datetime.getFullYear();
-                  var Nmonth = datetime.getMonth() + 1 < 10 ? "0" + (datetime.getMonth() + 1) : datetime.getMonth() + 1;
-                  var Ndate = datetime.getDate() < 10 ? "0" + datetime.getDate() : datetime.getDate();
-                  var Nhour = datetime.getHours() < 10 ? "0" + datetime.getHours() : datetime.getHours();
-                  var Nminute = datetime.getMinutes() < 10 ? "0" + datetime.getMinutes() : datetime.getMinutes();
-                  var Nsecond = datetime.getSeconds() < 10 ? "0" + datetime.getSeconds() : datetime.getSeconds();
-                  result = Nyear + "-" + Nmonth + "-" + Ndate
-              }
-              return result;
-          }
-          var lastUpDate = document.getElementById('last-update').innerHTML;
-          try {
-            document.getElementById('last-update-show').innerHTML = timeago(new Date(lastUpDate));
-          } catch (error) {
-            document.getElementById('last-update-show').innerHTML = '2020-12-12 日';
-          }
-        </script>
-        
-      
-    </div>
-  </div>
-</section>
-
-  
-
-  
-
 
 </aside>
+
 
 
         
@@ -689,14 +669,14 @@
 
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="SpringBoot 2.0.6 升级至 2.4.1升级记录";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
 
   var l_header=document.getElementById("l_header");
   
-  l_header.classList.remove("show");
+  l_header.classList.add("show");
   
 </script>
 
